@@ -12,8 +12,10 @@
 
         <div class="bottom-content">
 
+          <!-- LIKE FORM/BUTTON -->
+
           <div class="like">
-            <%= link_to like_path(id: picture.id), method: :post do %>
+            <%= link_to like_path(id: picture.id), method: :post, 'data-type' => 'json', class: 'like_button', remote: true do %>
               <div class="like-btn text-center" picture_id="<%= picture.id %>">
                 <span class="<%= picture.heart_class(current_user) %>"></span>
               </div>
@@ -25,16 +27,16 @@
             <div><%= image_tag("#{picture.user.profile_pic}", width: "50") %></div>
             <div class="description">
               <div>
-                <strong><%= picture.user.name %></strong> 
+                <strong><%= picture.user.name %></strong>
                 <%= picture.description %>
               </div>
             </div>
           </div> <!-- end user -->
 
         </div> <!-- end bottom-content -->
-
+        
       </div><!-- end INDIVIDUAL IMAGE -->
     <% end %>
-    
+
   </div> <!-- end feed-wrapper -->
 </div>
